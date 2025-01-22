@@ -1,16 +1,10 @@
-# player_pedia
+##**Player pedia**
+## Screen shots
 
-A new Flutter project.
+[![NPM Downloads]([https://img.shields.io/npm/v/:herokutools](https://raw.githubusercontent.com/error404sushant/player_pedia/refs/heads/main/assets/screen_shots/search_dark.png))]([https://www.npmjs.com/package/herokutools](https://raw.githubusercontent.com/error404sushant/player_pedia/refs/heads/main/assets/screen_shots/search_dark.png))
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![Alt text for screen readers](https://raw.githubusercontent.com/error404sushant/player_pedia/refs/heads/main/assets/screen_shots/search_dark.png)
 
-A few resources to get you started if this is your first Flutter project:
+![Alt text for screen readers](https://raw.githubusercontent.com/error404sushant/player_pedia/refs/heads/main/assets/screen_shots/search_dark.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
