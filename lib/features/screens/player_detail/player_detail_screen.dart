@@ -105,6 +105,7 @@ class _PlayerDetailScreenState extends State<PlayerDetailScreen> {
 
   //region Match images
 Widget matchImages(){
+
     return SliverToBoxAdapter(child: Column(
       spacing: 10,
       mainAxisSize: MainAxisSize.min,
