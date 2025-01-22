@@ -1,0 +1,484 @@
+{
+  "players":[
+    {
+      "id": "1a2b3c4d-1234-5678-9101-112131415161",
+      "name": "Virat Kohli",
+      "age": 34,
+      "best_performance": "183 against Pakistan in Asia Cup",
+      "total_score_day": 75,
+      "total_score_year": 1200,
+      "total_wickets": 0,
+      "photo_url": "https://media.gettyimages.com/id/2191879812/photo/virat-kohli-of-india-takes-the-catch-to-dismiss-pat-cummins.jpg?s=2048x2048&w=gi&k=20&c=cX23nZDMEJtUf40a63eixXVrA7usJtpcZ3jObhmtyAo=",
+      "created_at": "2025-01-22T10:00:00Z",
+      "about_player": "Virat Kohli is an Indian cricketer who has played 100 Tests, 220 ODIs, and 48 T20Is. He is considered one of the greatest batsmen in the history of cricket. He is the current captain of the Indian cricket team in all three formats of the game.",
+      "total_periodic_score": {
+        "day": 75,
+        "yearly": 1200
+      }
+    },
+    {
+      "id": "2b3c4d5e-2345-6789-1011-213141516171",
+      "name": "Rohit Sharma",
+      "age": 36,
+      "best_performance": "264 against Sri Lanka in ODIs",
+      "total_score_day": 45,
+      "total_score_year": 1100,
+      "total_wickets": 2,
+      "photo_url": "https://media.gettyimages.com/id/2158892656/photo/cricket-wc-2024-t20-ind-eng.jpg?s=2048x2048&w=gi&k=20&c=4ixfaMzQEyS2Q4nmcew_fPZPu0oviBGYumjgUy_iues=",
+      "created_at": "2025-01-22T10:10:00Z",
+      "about_player": "Rohit Sharma is an Indian cricketer known for his explosive batting in all formats of the game. He has scored numerous centuries, including the highest individual score in an ODI. He is also the vice-captain of the Indian cricket team.",
+      "total_periodic_score": {
+        "day": 45,
+        "yearly": 1100
+      }
+    },
+    {
+      "id": "3c4d5e6f-3456-7890-1213-314151617181",
+      "name": "Jasprit Bumrah",
+      "age": 29,
+      "best_performance": "6/33 against Australia in ODIs",
+      "total_score_day": 10,
+      "total_score_year": 150,
+      "total_wickets": 45,
+      "photo_url": "https://media.gettyimages.com/id/1209819071/photo/new-zealand-v-india-second-test-day-3.jpg?s=2048x2048&w=gi&k=20&c=h8Xie7GsPgMbbX_sK_6B_a_qVw_8dN71Sc5ebITDRXo=",
+      "created_at": "2025-01-22T10:20:00Z",
+      "about_player": "Jasprit Bumrah is a prominent Indian fast bowler known for his unique bowling action and deadly yorkers. He has been pivotal in both Test and limited-overs cricket for India.",
+      "total_periodic_score": {
+        "day": 10,
+        "yearly": 150
+      }
+    },
+    {
+      "id": "4d5e6f7g-4567-8901-1415-415161718191",
+      "name": "Steve Smith",
+      "age": 34,
+      "best_performance": "211 against England in Ashes",
+      "total_score_day": 90,
+      "total_score_year": 1400,
+      "total_wickets": 5,
+      "photo_url": "https://media.gettyimages.com/id/496751050/photo/australia-training-session.jpg?s=2048x2048&w=gi&k=20&c=N-pEJVJGSjtqR6aXXBrpVoI-cz_xxtCP47H5-LJX8v4=",
+      "created_at": "2025-01-22T10:30:00Z",
+      "about_player": "Steve Smith is an Australian cricketer, known for his exceptional batting skills and tactical acumen. He has captained the Australian team and is famous for his remarkable performances in Test cricket.",
+      "total_periodic_score": {
+        "day": 90,
+        "yearly": 1400
+      }
+    },
+    {
+      "id": "5e6f7g8h-5678-9012-1617-516171819201",
+      "name": "Ben Stokes",
+      "age": 32,
+      "best_performance": "135* against Australia in Headingley Test",
+      "total_score_day": 80,
+      "total_score_year": 950,
+      "total_wickets": 22,
+      "photo_url": "https://media.gettyimages.com/id/892118972/photo/supersmash-t20-canterbury-kings-v-otago-volts.jpg?s=2048x2048&w=gi&k=20&c=tTc96WC94P173hJNb0tQmf8Oe7bJdsgTlNeSULNDMDY=",
+      "created_at": "2025-01-22T10:40:00Z",
+      "about_player": "Ben Stokes is an all-rounder for England, famous for his match-winning performances, especially in Tests. His aggressive style of play has made him a key player in both batting and bowling.",
+      "total_periodic_score": {
+        "day": 80,
+        "yearly": 950
+      }
+    },
+    {
+      "id": "6f7g8h9i-6789-0123-1819-617181920211",
+      "name": "MS Dhoni",
+      "age": 41,
+      "best_performance": "91* in 2011 World Cup Final",
+      "total_score_day": 0,
+      "total_score_year": 750,
+      "total_wickets": 0,
+      "photo_url": "https://media.gettyimages.com/id/492639828/photo/india-vs-south-africa.jpg?s=2048x2048&w=gi&k=20&c=WpxwZfSpxMxkbUbU5lTmZA0oBTlTeWjop8gUq4R3YEs=",
+      "created_at": "2025-01-22T10:50:00Z",
+      "about_player": "MS Dhoni, often called 'Captain Cool', is a legendary Indian cricketer who led India to several victories including the 2011 Cricket World Cup. Known for his calm demeanor and sharp cricketing mind, he's also famous for his finishing skills in ODIs.",
+      "total_periodic_score": {
+        "day": 0,
+        "yearly": 750
+      }
+    },
+    {
+      "id": "7g8h9i1j-7890-1234-2021-718192021221",
+      "name": "David Warner",
+      "age": 36,
+      "best_performance": "335* against Pakistan in Tests",
+      "total_score_day": 100,
+      "total_score_year": 1350,
+      "total_wickets": 3,
+      "photo_url": "https://media.gettyimages.com/id/458784202/photo/2014-15-australian-test-team-portraits.jpg?s=2048x2048&w=gi&k=20&c=j366VUhyJK-eVtQlp_r0C_Pb4mU3xEDb605ch9-rivU=",
+      "created_at": "2025-01-22T11:00:00Z",
+      "about_player": "David Warner is an aggressive Australian opener known for his ability to dominate both pace and spin bowling. He has been instrumental in numerous victories for Australia in all formats of cricket.",
+      "total_periodic_score": {
+        "day": 100,
+        "yearly": 1350
+      }
+    },
+    {
+      "id": "8h9i1j2k-8901-2345-2223-819202122231",
+      "name": "AB de Villiers",
+      "age": 39,
+      "best_performance": "149 off 44 balls against WI",
+      "total_score_day": 120,
+      "total_score_year": 1250,
+      "total_wickets": 0,
+      "photo_url": "https://media.gettyimages.com/id/98748189/photo/england-v-south-africa-warm-up-match-icc-t20-world-cup.jpg?s=2048x2048&w=gi&k=20&c=WEHNktWwK0Sp6Y7iPOUKSk9emVTp6uUj242Wg_yDc_E=",
+      "created_at": "2025-01-22T11:10:00Z",
+      "about_player": "AB de Villiers, known as 'Mr. 360' for his all-round shot-making ability, is a South African cricketer who redefined batting with his innovative and versatile play across all formats.",
+      "total_periodic_score": {
+        "day": 120,
+        "yearly": 1250
+      }
+    },
+    {
+      "id": "9i1j2k3l-9012-3456-2425-920212223241",
+      "name": "Kane Williamson",
+      "age": 33,
+      "best_performance": "251 against WI in Tests",
+      "total_score_day": 60,
+      "total_score_year": 1100,
+      "total_wickets": 7,
+      "photo_url": "https://media.gettyimages.com/id/1289136205/photo/new-zealand-v-west-indies-1st-test-day-1.jpg?s=2048x2048&w=gi&k=20&c=Nleo1EFO-VSQGN_qI5HNc5W4gvfZcD8R2xWaUXcqAWs=",
+      "created_at": "2025-01-22T11:20:00Z",
+      "about_player": "Kane Williamson is the captain of New Zealand's cricket team, celebrated for his calm and composed leadership, and his consistent, technically sound batting in all formats.",
+      "total_periodic_score": {
+        "day": 60,
+        "yearly": 1100
+      }
+    },
+    {
+      "id": "1j2k3l4m-0123-4567-2627-102223242531",
+      "name": "Joe Root",
+      "age": 33,
+      "best_performance": "254 against Pakistan in Tests",
+      "total_score_day": 70,
+      "total_score_year": 1250,
+      "total_wickets": 12,
+      "photo_url": "https://media.gettyimages.com/id/1169394591/photo/bmw-pga-championship-previews.jpg?s=2048x2048&w=gi&k=20&c=xXbjr2yojcSD2wDWWr-kjzGAge9MLCH_gIJaqFN2_Uo=",
+      "created_at": "2025-01-22T11:30:00Z",
+      "about_player": "Joe Root is an English cricketer, renowned for his classical batting technique and consistent performance in Test cricket where he has captained England.",
+      "total_periodic_score": {
+        "day": 70,
+        "yearly": 1250
+      }
+    },
+    {
+      "id": "11a12b13c-1111-2222-3333-444455556666",
+      "name": "Marnus Labuschagne",
+      "age": 30,
+      "best_performance": "185 against England in Ashes",
+      "total_score_day": 85,
+      "total_score_year": 1300,
+      "total_wickets": 4,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T12:00:00Z",
+      "about_player": "Marnus Labuschagne is an Australian cricketer known for his gritty batting, particularly in Test cricket, where he has climbed to the top of the rankings with his consistent performances.",
+      "total_periodic_score": {
+        "day": 85,
+        "yearly": 1300
+      }
+    },
+    {
+      "id": "22b23c24d-2222-3333-4444-555566667777",
+      "name": "Rashid Khan",
+      "age": 26,
+      "best_performance": "7/18 against WI in ODIs",
+      "total_score_day": 30,
+      "total_score_year": 450,
+      "total_wickets": 60,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T12:10:00Z",
+      "about_player": "Rashid Khan is an Afghan cricketer, famous for his leg-spin bowling which has terrorized batsmen worldwide. He's known for his ability to take wickets in all formats of the game.",
+      "total_periodic_score": {
+        "day": 30,
+        "yearly": 450
+      }
+    },
+    {
+      "id": "33c34d35e-3333-4444-5555-666677778888",
+      "name": "Shubman Gill",
+      "age": 24,
+      "best_performance": "208 against New Zealand in ODIs",
+      "total_score_day": 95,
+      "total_score_year": 1200,
+      "total_wickets": 0,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T12:20:00Z",
+      "about_player": "Shubman Gill is a young Indian opener who has quickly risen through the ranks with his elegant stroke play and solid technique, making significant contributions in both Tests and ODIs.",
+      "total_periodic_score": {
+        "day": 95,
+        "yearly": 1200
+      }
+    },
+    {
+      "id": "44d45e46f-4444-5555-6666-777788889999",
+      "name": "Shaheen Afridi",
+      "age": 25,
+      "best_performance": "6/35 against India in ODIs",
+      "total_score_day": 20,
+      "total_score_year": 200,
+      "total_wickets": 50,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T12:30:00Z",
+      "about_player": "Shaheen Afridi is a Pakistani fast bowler known for his pace and swing, particularly effective in the early overs of an innings. He's considered one of the brightest prospects in world cricket.",
+      "total_periodic_score": {
+        "day": 20,
+        "yearly": 200
+      }
+    },
+    {
+      "id": "55e56f57g-5555-6666-7777-888899990000",
+      "name": "Glenn Maxwell",
+      "age": 34,
+      "best_performance": "201* against Afghanistan in ODIs",
+      "total_score_day": 110,
+      "total_score_year": 1100,
+      "total_wickets": 10,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T12:40:00Z",
+      "about_player": "Glenn Maxwell, often referred to as 'The Big Show', is an Australian all-rounder known for his aggressive batting, exceptional fielding, and useful off-spin bowling.",
+      "total_periodic_score": {
+        "day": 110,
+        "yearly": 1100
+      }
+    },
+    {
+      "id": "66f67g68h-6666-7777-8888-999900001111",
+      "name": "Babar Azam",
+      "age": 30,
+      "best_performance": "158 against England in ODIs",
+      "total_score_day": 80,
+      "total_score_year": 1400,
+      "total_wickets": 0,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T12:50:00Z",
+      "about_player": "Babar Azam is a Pakistani cricketer, renowned for his elegant stroke play and consistency across all formats. He is often regarded as one of the best batsmen in modern cricket and has led the Pakistani team as captain.",
+      "total_periodic_score": {
+        "day": 80,
+        "yearly": 1400
+      }
+    },
+    {
+      "id": "77g78h79i-7777-8888-9999-000011112222",
+      "name": "Mohammad Rizwan",
+      "age": 32,
+      "best_performance": "131* against India in T20Is",
+      "total_score_day": 75,
+      "total_score_year": 1150,
+      "total_wickets": 0,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T13:00:00Z",
+      "about_player": "Mohammad Rizwan is a Pakistani wicket-keeper batsman known for his performances in T20 cricket. His ability to anchor innings and finish games has made him a key player for Pakistan in the shortest format.",
+      "total_periodic_score": {
+        "day": 75,
+        "yearly": 1150
+      }
+    },
+    {
+      "id": "88h89i90j-8888-9999-0000-111122223333",
+      "name": "Trent Boult",
+      "age": 35,
+      "best_performance": "7/34 against WI in ODIs",
+      "total_score_day": 15,
+      "total_score_year": 220,
+      "total_wickets": 45,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T13:10:00Z",
+      "about_player": "Trent Boult is a New Zealand fast bowler known for his swing bowling capabilities. He has been instrumental in many of New Zealand's victories, particularly with his performances in the World Cups.",
+      "total_periodic_score": {
+        "day": 15,
+        "yearly": 220
+      }
+    },
+    {
+      "id": "99i90j91k-9999-0000-1111-222233334444",
+      "name": "Mitchell Starc",
+      "age": 33,
+      "best_performance": "6/28 against NZ in ODIs",
+      "total_score_day": 25,
+      "total_score_year": 250,
+      "total_wickets": 40,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T13:20:00Z",
+      "about_player": "Mitchell Starc is an Australian left-arm fast bowler known for his express pace and ability to swing the new ball. He has been a vital part of Australia's bowling attack across all formats.",
+      "total_periodic_score": {
+        "day": 25,
+        "yearly": 250
+      }
+    },
+    {
+      "id": "10j91k92l-1010-1111-2222-333344445555",
+      "name": "KL Rahul",
+      "age": 31,
+      "best_performance": "112* against England in T20Is",
+      "total_score_day": 65,
+      "total_score_year": 950,
+      "total_wickets": 0,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T13:30:00Z",
+      "about_player": "KL Rahul is an Indian cricketer known for his versatility, capable of batting in various positions and also keeping wickets. He has shown tremendous form in all formats, particularly in T20 cricket.",
+      "total_periodic_score": {
+        "day": 65,
+        "yearly": 950
+      }
+    },
+    {
+      "id": "11k92l93m-1111-2222-3333-444455556666",
+      "name": "Pat Cummins",
+      "age": 31,
+      "best_performance": "6/23 against South Africa in Tests",
+      "total_score_day": 10,
+      "total_score_year": 150,
+      "total_wickets": 35,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T13:40:00Z",
+      "about_player": "Pat Cummins is an Australian fast bowler who has shown remarkable consistency and has been pivotal in Australia's Test cricket success. He's also the captain of the Australian cricket team across all formats.",
+      "total_periodic_score": {
+        "day": 10,
+        "yearly": 150
+      }
+    },
+    {
+      "id": "12l93m94n-1212-3333-4444-555566667777",
+      "name": "Andre Russell",
+      "age": 34,
+      "best_performance": "94* against CSK in IPL",
+      "total_score_day": 85,
+      "total_score_year": 900,
+      "total_wickets": 20,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T13:50:00Z",
+      "about_player": "Andre Russell is a West Indian all-rounder known for his explosive hitting and useful medium-pace bowling in T20 cricket. He is a key player in the IPL and for the West Indies in limited-overs formats.",
+      "total_periodic_score": {
+        "day": 85,
+        "yearly": 900
+      }
+    },
+    {
+      "id": "13m94n95o-1313-4444-5555-666677778888",
+      "name": "Aaron Finch",
+      "age": 37,
+      "best_performance": "172 against Zimbabwe in T20Is",
+      "total_score_day": 60,
+      "total_score_year": 750,
+      "total_wickets": 0,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T14:00:00Z",
+      "about_player": "Aaron Finch is an Australian cricketer famous for his aggressive opening batting in T20 cricket. He has captained Australia in T20Is and is known for his ability to score quickly.",
+      "total_periodic_score": {
+        "day": 60,
+        "yearly": 750
+      }
+    },
+    {
+      "id": "14n95o96p-1414-5555-6666-777788889999",
+      "name": "Eoin Morgan",
+      "age": 38,
+      "best_performance": "148 against Afghanistan in ODIs",
+      "total_score_day": 55,
+      "total_score_year": 800,
+      "total_wickets": 0,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T14:10:00Z",
+      "about_player": "Eoin Morgan is an English cricketer who led England to the 2019 Cricket World Cup victory. Known for his innovative captaincy and dynamic batting in the middle order, he revolutionized England's white-ball cricket strategy.",
+      "total_periodic_score": {
+        "day": 55,
+        "yearly": 800
+      }
+    },
+    {
+      "id": "15o96p97q-1515-6666-7777-888899990000",
+      "name": "Ravindra Jadeja",
+      "age": 34,
+      "best_performance": "7/42 against England in Tests",
+      "total_score_day": 50,
+      "total_score_year": 600,
+      "total_wickets": 40,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T14:20:00Z",
+      "about_player": "Ravindra Jadeja is an Indian all-rounder known for his left-arm spin bowling, explosive batting, and exceptional fielding. He is crucial to India's strategy in all formats, especially in home conditions.",
+      "total_periodic_score": {
+        "day": 50,
+        "yearly": 600
+      }
+    },
+    {
+      "id": "16p97q98r-1616-7777-8888-999900001111",
+      "name": "Shakib Al Hasan",
+      "age": 36,
+      "best_performance": "124* against WI in World Cup",
+      "total_score_day": 70,
+      "total_score_year": 950,
+      "total_wickets": 30,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T14:30:00Z",
+      "about_player": "Shakib Al Hasan is a Bangladeshi all-rounder, one of the best in the world, known for his ability to contribute significantly with both bat and ball. He has been a mainstay in Bangladesh's cricket team for years.",
+      "total_periodic_score": {
+        "day": 70,
+        "yearly": 950
+      }
+    },
+    {
+      "id": "17q98r99s-1717-8888-9999-000011112222",
+      "name": "Chris Gayle",
+      "age": 44,
+      "best_performance": "215 against Zimbabwe in World Cup",
+      "total_score_day": 100,
+      "total_score_year": 1250,
+      "total_wickets": 5,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T14:40:00Z",
+      "about_player": "Chris Gayle, known as 'The Universe Boss', is a West Indian cricketer celebrated for his power-hitting, particularly in T20 cricket. He holds numerous records for the highest scores and most sixes.",
+      "total_periodic_score": {
+        "day": 100,
+        "yearly": 1250
+      }
+    },
+    {
+      "id": "18r99s100t-1818-9999-0000-111122223333",
+      "name": "Tim Southee",
+      "age": 35,
+      "best_performance": "7/33 against England in Tests",
+      "total_score_day": 30,
+      "total_score_year": 300,
+      "total_wickets": 50,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T14:50:00Z",
+      "about_player": "Tim Southee is a New Zealand fast bowler known for his ability to move the ball both ways. He has been a consistent performer for New Zealand, especially in Test cricket, and has served as captain in ODIs.",
+      "total_periodic_score": {
+        "day": 30,
+        "yearly": 300
+      }
+    },
+    {
+      "id": "19s100t101u-1919-0000-1111-222233334444",
+      "name": "Faf du Plessis",
+      "age": 40,
+      "best_performance": "199 against Sri Lanka in Tests",
+      "total_score_day": 65,
+      "total_score_year": 1000,
+      "total_wickets": 0,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T15:00:00Z",
+      "about_player": "Faf du Plessis is a South African cricketer known for his leadership as captain and his calm, calculated batting style. He's particularly effective in anchoring the innings and has been influential in T20 cricket.",
+      "total_periodic_score": {
+        "day": 65,
+        "yearly": 1000
+      }
+    },
+    {
+      "id": "20t101u102v-2020-1111-2222-333344445555",
+      "name": "Kieron Pollard",
+      "age": 37,
+      "best_performance": "6/17 against South Africa in T20Is",
+      "total_score_day": 75,
+      "total_score_year": 800,
+      "total_wickets": 25,
+      "photo_url": "https://i.pravatar.cc/400",
+      "created_at": "2025-01-22T15:10:00Z",
+      "about_player": "Kieron Pollard is a West Indian all-rounder known for his finishing skills in T20 cricket. His powerful hitting and useful bowling have made him one of the most valuable players in the format globally.",
+      "total_periodic_score": {
+        "day": 75,
+        "yearly": 800
+      }
+    }
+  ]
+}
