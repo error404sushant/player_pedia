@@ -1,69 +1,63 @@
-import 'dart:convert';
 import 'package:hive/hive.dart';
-import 'package:player_pedia/util/app_constants/app_constants.dart';
-
 
 class HiveManager {
-  // Singleton pattern to ensure only one instance of HiveManager
-  static final HiveManager _instance = HiveManager._internal();
-  factory HiveManager() => _instance;
-  HiveManager._internal();
-
-  // To store encryption key (Optional)
-  // Initialize Hive
-  Future<void> init() async {
-    // Hive initialization is done in main.dart for Flutter apps (Hive.initFlutter)
-  }
-  
-
-  // Open a box with optional encryption
-  Future<Box<T>> openBox<T>(String boxName) async {
-    var encryptionCipher;
-    if (AppConstants.dbKey != null) {
-      encryptionCipher = HiveAesCipher(base64Url.decode(AppConstants.dbKey));
-    }
-    return await Hive.openBox<T>(boxName, encryptionCipher: encryptionCipher);
+  // Assuming you've already opened your boxes and they're accessible by their names
+  static Box getBox(String boxName) {
+    return Hive.box(boxName);
   }
 
-  // Add or Update data in the box
-  Future<void> addOrUpdateData<T>(String boxName, dynamic key, T value) async {
-    var box = await openBox<T>(boxName);
+  /// Save data to a specific box
+  static Future<void> saveData<T>({required String boxName, required String key, required dynamic value}) async {
+    var box = getBox(boxName);
     await box.put(key, value);
   }
 
-  // Get data from the box
-  Future<T?> getData<T>(String boxName, dynamic key) async {
-    var box = await openBox<T>(boxName);
-    return box.get(key);
+  /// Retrieve data from a specific box
+  static T? getData<T>({required String boxName, required String key}) {
+    var box = getBox(boxName);
+    return box.get(key) as T?;
   }
 
-  // Check if data exists in the box
-  Future<bool> containsKey<T>(String boxName, dynamic key) async {
-    var box = await openBox<T>(boxName);
-    return box.containsKey(key);
-  }
-
-  // Remove data from the box
-  Future<void> removeData<T>(String boxName, dynamic key) async {
-    var box = await openBox<T>(boxName);
+  /// Delete data from a specific box
+  static Future<void> deleteData({required String boxName, required String key}) async {
+    var box = getBox(boxName);
     await box.delete(key);
   }
 
-  // Clear all data from the box
-  Future<void> clearBox<T>(String boxName) async {
-    var box = await openBox<T>(boxName);
+  /// Clear all data in a specific box
+  static Future<void> clearAllData({required String boxName}) async {
+    var box = getBox(boxName);
     await box.clear();
   }
 
-  // Get all keys from the box
-  Future<List<dynamic>> getAllKeys<T>(String boxName) async {
-    var box = await openBox<T>(boxName);
-    return box.keys.toList();
+  /// Check if a key exists in a specific box
+  static bool hasKey({required String boxName, required String key}) {
+    var box = getBox(boxName);
+    return box.containsKey(key);
   }
 
-  // Close the box
-  Future<void> closeBox<T>(String boxName) async {
-    var box = await openBox<T>(boxName);
-    await box.close();
+  /// Add or update an object in a list stored in a Hive box
+  static Future<void> addOrUpdateInList<T>({
+    required String boxName,
+    required String key,
+    required dynamic object,
+    required bool Function(T) condition,
+  }) async {
+    var box = getBox(boxName);
+    List<dynamic> objectsList = box.get(key, defaultValue: []) as List<dynamic>;
+
+    // Check if the object exists in the list based on the condition
+    int index = objectsList.indexWhere((existingObject) => condition(existingObject));
+
+    if (index != -1) {
+      // Update the existing object
+      objectsList[index] = object;
+    } else {
+      // Add the new object to the list
+      objectsList.add(object);
+    }
+
+    // Save the updated list back to Hive
+    await box.put(key, objectsList);
   }
 }

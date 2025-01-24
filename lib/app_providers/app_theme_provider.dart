@@ -15,10 +15,10 @@ class AppThemeProvider extends ChangeNotifier {
 
   //region Check app theme
   void checkAppTheme(){
-    HiveManager().openBox(StorageServiceBox.appThemeInfo);
-    Object isDarkMode = HiveManager().getData(StorageServiceBox.appThemeInfo, StorageServiceBoxAndKey.isDarkMode);
-
-    print(isDarkMode);
+    // HiveManager().openBox(StorageServiceBox.appThemeInfo);
+    // Object isDarkMode = HiveManager().getData(StorageServiceBox.appThemeInfo, StorageServiceBoxAndKey.isDarkMode);
+    //
+    // print(isDarkMode);
 
 
 
@@ -39,20 +39,11 @@ class AppThemeProvider extends ChangeNotifier {
       themeMode = ThemeMode.light;
     }
     //Save info in db
-    saveThemeInfoToDb();
     //Update ui
     notifyListeners(); // Notify listeners (widgets) to rebuild
   }
   //endregion
 
-
-//region Save theme info to local db
-void saveThemeInfoToDb({ bool isDarkMode = false}){
-  HiveManager().openBox(StorageServiceBox.appThemeInfo);
-  HiveManager().addOrUpdateData(StorageServiceBox.appThemeInfo, StorageServiceBoxAndKey.isDarkMode, isDarkMode);
-
-}
-//endregion
 
 
 

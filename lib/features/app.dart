@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:path_provider/path_provider.dart';
+import 'package:player_pedia/app_providers/admin_provider.dart';
 import 'package:player_pedia/app_providers/app_theme_provider.dart';
 import 'package:player_pedia/app_providers/player_detail_provider.dart';
 import 'package:player_pedia/app_providers/player_search_provider.dart';
@@ -23,10 +27,25 @@ class _AppState extends State<App> {
   //region Init
   @override
   void initState() {
+    countAllHiveBoxes();
     super.initState();
   }
   //endregion
 
+
+
+  void countAllHiveBoxes() async {
+    Directory appDocDir = await getApplicationDocumentsDirectory();
+    String hivePath = '${appDocDir.path}';
+    Directory hiveDir = Directory(hivePath);
+
+    if (await hiveDir.exists()) {
+      List<FileSystemEntity> boxes = await hiveDir.list().toList();
+      print("Total bos are ${boxes.length}");
+    } else {
+      print("No table are there");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +54,7 @@ class _AppState extends State<App> {
         ChangeNotifierProvider(create: (context) => AppThemeProvider()),
         ChangeNotifierProvider(create: (context) => PlayerSearchProvider()),
         ChangeNotifierProvider(create: (context) => PlayerDetailProvider()),
+        ChangeNotifierProvider(create: (context) => AdminProvider()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),

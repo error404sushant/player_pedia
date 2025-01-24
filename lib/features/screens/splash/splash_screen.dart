@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:player_pedia/features/screens/player_serach/player_search_screen.dart';
+import 'package:player_pedia/features/screens/select_account/select_account_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,11 +16,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // You can navigate to another screen after a delay (e.g., 3 seconds)
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed( const Duration(seconds: 2), () {
       // Navigate to the next screen (e.g., Home screen)
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => PlayerSearchScreen()),
+      Navigator.pushReplacement( context,
+        MaterialPageRoute(builder: (context) => SelectAccountScreen()),
       );
     });
   }
