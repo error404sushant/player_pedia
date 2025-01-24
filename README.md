@@ -1,5 +1,3 @@
-| Image                                             | Description               |
-|---------------------------------------------------|---------------------------|
 | <img src="/assets/screen_shots/select_account_dark.png" alt="fishy" width="200px" class="bg-primary"> | **Select Account (Dark Mode)** |
 | <img src="/assets/screen_shots/select_account_light.png" alt="fishy" width="200px" class="bg-primary"> | **Select Account (Light Mode)** |
 | <img src="/assets/screen_shots/search_dark.png" alt="fishy" width="200px" class="bg-primary"> | **Search (Dark Mode)**         |
