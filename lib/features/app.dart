@@ -55,6 +55,17 @@ class _AppState extends State<App> {
         ChangeNotifierProvider(create: (context) => PlayerSearchProvider()),
         ChangeNotifierProvider(create: (context) => PlayerDetailProvider()),
         ChangeNotifierProvider(create: (context) => AdminProvider()),
+
+
+        ChangeNotifierProxyProvider<PlayerSearchProvider, AdminProvider>(
+          create: (context) => AdminProvider(),
+          update: (context, playerSearchProvider, adminProvider) {
+            // You can now access PlayerSearchProvider within AdminProvider
+            adminProvider?.updatePlayerSearchProvider(playerSearchProvider);
+            return adminProvider!;
+          },
+        ),
+
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),

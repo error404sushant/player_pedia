@@ -10,8 +10,9 @@ import 'package:provider/provider.dart';
 
 class PlayerDetailScreen extends StatefulWidget {
   final String playerId;
+  final bool isFromAdmin;
 
-  const PlayerDetailScreen({super.key, required this.playerId});
+  const PlayerDetailScreen({super.key, required this.playerId, required this.isFromAdmin});
 
   @override
   State<PlayerDetailScreen> createState() => _PlayerDetailScreenState();
@@ -53,19 +54,21 @@ class _PlayerDetailScreenState extends State<PlayerDetailScreen> {
         ),
 
           // Add the floating action button here
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              playerSearchProvider.onTapHeart(playerId: playerDetail.id!);
-            },
-            tooltip: 'Like',
-            backgroundColor: Colors.blue,
-            child: Icon(playerDetail.isLiked!?Icons.favorite:Icons.favorite_border,color:playerDetail.isLiked!?Colors.red:null ,), // Customize the color as needed
+          floatingActionButton: Visibility(
+            visible: !widget.isFromAdmin,
+            child: FloatingActionButton(
+              onPressed: () {
+                playerSearchProvider.onTapHeart(playerId: playerDetail.id!);
+              },
+              tooltip: 'Like',
+              backgroundColor: Colors.blue,
+              child: Icon(playerDetail.isLiked!?Icons.favorite:Icons.favorite_border,color:playerDetail.isLiked!?Colors.red:null ,), // Customize the color as needed
+            ),
           ),
         );
       },
     );
   }
-
   //endregion
 
   //region Player Profile Image

@@ -19,27 +19,33 @@ class CommonCachedImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(borderRadius),
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
+      child: SizedBox(
         height: height,
         width: width,
-        fit: BoxFit.cover,
-        placeholder: (context, url) => Container(
+        child: CachedNetworkImage(
+          imageUrl: imageUrl,
           height: height,
           width: width,
-          color: Colors.grey.shade300,
-          child: const Center(
-            child: CircularProgressIndicator(),
+          fit: BoxFit.cover,
+          placeholder: (context, url) => Container(
+            height: height,
+            width: width,
+            color: Colors.grey.shade300,
+            child: Icon(
+              Icons.image,
+              color: Colors.grey.shade600,
+              size: height * 0.5,
+            ),
           ),
-        ),
-        errorWidget: (context, url, error) => Container(
-          height: height,
-          width: width,
-          color: Colors.grey.shade300,
-          child: Icon(
-            Icons.broken_image,
-            color: Colors.grey.shade600,
-            size: height * 0.5,
+          errorWidget: (context, url, error) => Container(
+            height: height,
+            width: width,
+            color: Colors.grey.shade300,
+            child: Icon(
+              Icons.broken_image,
+              color: Colors.grey.shade600,
+              size: height * 0.5,
+            ),
           ),
         ),
       ),

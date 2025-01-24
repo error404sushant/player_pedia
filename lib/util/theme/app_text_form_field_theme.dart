@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTextFormFieldTheme {
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
-    errorMaxLines: 3,
+    errorMaxLines: 1,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
     labelStyle: const TextStyle(
@@ -57,7 +57,7 @@ class AppTextFormFieldTheme {
   );
 
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
-    errorMaxLines: 3,
+    errorMaxLines: 1,
     prefixIconColor: Colors.grey.shade400,
     suffixIconColor: Colors.grey.shade400,
     labelStyle: const TextStyle(

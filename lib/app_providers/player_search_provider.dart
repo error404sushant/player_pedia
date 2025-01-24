@@ -3,22 +3,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
+import 'package:player_pedia/features/screens/add_edit_player_info/add_edit_player_screen.dart';
 import 'package:player_pedia/features/screens/player_detail/player_detail_screen.dart';
 import 'dart:async';
 import 'package:player_pedia/model/player_detail/player_detail.dart';
-import 'package:player_pedia/services/fetch_player_detail_services/fetch_player_detail_service.dart';
 import 'package:player_pedia/services/storage_service/storage_service.dart';
 import 'package:player_pedia/services/storage_service/storage_service_box.dart';
 import 'package:player_pedia/services/storage_service/storage_service_key.dart';
 import 'package:player_pedia/util/app_enums.dart';
 
 class PlayerSearchProvider with ChangeNotifier {
+  //region Common Variables
   List<PlayerDetail> playerDetailList = [];
   List<PlayerDetail> filterData = [];
+  bool isAdminView = false;
   String _errorMessage = '';
   ApiCallStateEnum status = ApiCallStateEnum.loading;
   bool isSearch = false;
-  Timer? _timer;
+
+  //endregion
 
   //region Get initial player list
   Future<void> fetchUsers() async {
@@ -44,6 +47,32 @@ class PlayerSearchProvider with ChangeNotifier {
 
   //endregion
 
+  //region Add or update one player detail
+  void addOrUpdateOnePlayerDetail({required PlayerDetail playerDetail}) {
+    //If already exist then replace else add
+    if (playerDetailList.any((element) => element.id == playerDetail.id)) {
+      //Replace
+      playerDetailList.removeWhere((element) => element.id == playerDetail.id);
+      playerDetailList.add(playerDetail);
+    } else {
+      playerDetailList.add(playerDetail);
+    }
+    //Notify listeners
+    notifyListeners();
+  }
+
+  //endregion
+
+  //region Delete one player detail
+  void deleteOnePlayerDetail({required String playerId}) {
+    //Delete player detail from playerDetailList
+    playerDetailList.removeWhere((element) => element.id == playerId);
+    //Notify listeners
+    notifyListeners();
+  }
+  //endregion
+
+
   //region On search
   Future<void> onSearch({required String searchText}) async {
     //If empty
@@ -64,7 +93,8 @@ class PlayerSearchProvider with ChangeNotifier {
   //region On tap heart
   void onTapHeart({required String playerId}) async {
     // Mark isLiked as true from playerDetailList id and if already liked then mark as false
-    PlayerDetail player = playerDetailList.firstWhere((player) => player.id == playerId);
+    PlayerDetail player =
+        playerDetailList.firstWhere((player) => player.id == playerId);
 
     // Update data
     player.isLiked = !player.isLiked!;
@@ -77,17 +107,33 @@ class PlayerSearchProvider with ChangeNotifier {
       boxName: StorageServiceBox.playerInfo,
       key: StorageServiceKey.playerDetailList,
       object: player,
-      condition: (existingPlayer) => (existingPlayer as PlayerDetail).id == playerId,  // Explicitly cast to PlayerDetail
+      condition: (existingPlayer) =>
+          (existingPlayer as PlayerDetail).id ==
+          playerId, // Explicitly cast to PlayerDetail
     );
   }
 
+  //endregion
+
+  //region On tap add and edit
+  void onTapAddAndEdit(
+      { String? playerId, required BuildContext context}) async {
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+          builder: (context) => AddAndEditPlayerScreen(
+                playerId: playerId,
+              )),
+    );
+  }
 
   //endregion
 
   //region On tap player
-  void onTapPlayer({required BuildContext context, required String playerId}) {
+  void onTapPlayer({required BuildContext context, required String playerId,required bool isAdminView}) {
     var screen = PlayerDetailScreen(
       playerId: playerId,
+      isFromAdmin: isAdminView,
     );
     var route = CupertinoPageRoute(builder: (context) => screen);
     Navigator.push(context, route);
@@ -137,17 +183,11 @@ class PlayerSearchProvider with ChangeNotifier {
       //Else add the data from json to hive
       else {
         print("Data already exist");
-
-        // Fetch existing data from Hive
-        // List<PlayerDetail>? existingPlayers =
-        //     HiveManager.getData<List<PlayerDetail>>(
-        //         boxName: StorageServiceBox.playerInfo,
-        //         key: StorageServiceBoxAndKey.playerDetailList);
-        List<PlayerDetail>? existingPlayers = (HiveManager.getData<List<dynamic>>(
+        List<PlayerDetail>? existingPlayers =
+            (HiveManager.getData<List<dynamic>>(
           boxName: StorageServiceBox.playerInfo,
           key: StorageServiceKey.playerDetailList,
-        ))
-            ?.cast<PlayerDetail>();
+        ))?.cast<PlayerDetail>();
 
         //Add player detail in playerDetailList
         playerDetailList = existingPlayers!;
@@ -162,6 +202,14 @@ class PlayerSearchProvider with ChangeNotifier {
     } catch (e) {
       print("Something went wrong");
     }
+  }
+
+//endregion
+
+  //region Update ui
+  void updateUi() {
+    //update ui
+    notifyListeners();
   }
 //endregion
 }

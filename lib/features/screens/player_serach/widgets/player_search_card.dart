@@ -7,15 +7,17 @@ class PlayerSearchCard extends StatefulWidget {
   final String title;
   final String subtitle;
   final bool isLiked;
+  final bool isAdmin;
   final VoidCallback onTap;
   final VoidCallback onTapHeart;
+  final VoidCallback onTapEdit;
 
   const PlayerSearchCard({
     Key? key,
     required this.profileUrl,
     required this.title,
     required this.subtitle,
-    required this.onTap, required this.isLiked, required this.onTapHeart, required this.id,
+    required this.onTap, required this.isLiked, required this.onTapHeart, required this.id, required this.isAdmin, required this.onTapEdit,
   }) : super(key: key);
 
   @override
@@ -126,6 +128,15 @@ class _PlayerSearchCardState extends State<PlayerSearchCard> {
                   ],
                 ),
               ),
+              //If admin view then show the edit button
+              widget.isAdmin?
+              IconButton(
+                  onPressed: (){
+                    widget.onTapEdit();
+                  },
+                  icon: Icon(Icons.edit))
+
+                  :
               //Hart
                IconButton(
                    onPressed: (){

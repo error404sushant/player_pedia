@@ -1,17 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:player_pedia/app_providers/admin_provider.dart';
+import 'package:player_pedia/app_providers/player_search_provider.dart';
 import 'package:player_pedia/model/player_detail/player_detail.dart';
 import 'package:player_pedia/util/theme/custom_text_theme.dart';
 import 'package:provider/provider.dart';
 
-class AdminScreen extends StatefulWidget {
-  const AdminScreen({super.key});
+class AddAndEditPlayerScreen extends StatefulWidget {
+  final String? playerId;
+  const AddAndEditPlayerScreen({super.key,  this.playerId});
 
   @override
-  State<AdminScreen> createState() => _AdminScreenState();
+  State<AddAndEditPlayerScreen> createState() => _AddAndEditPlayerScreenState();
 }
 
-class _AdminScreenState extends State<AdminScreen> {
+class _AddAndEditPlayerScreenState extends State<AddAndEditPlayerScreen> {
+
+
+  //initialize player search
+  PlayerSearchProvider? _playerSearchProvider;
+  //Initialize admin provider
+  AdminProvider? _adminProvider;
+
+  //region Init
+  @override
+  void initState() {
+    //initialize player search
+    _playerSearchProvider = Provider.of<PlayerSearchProvider>(context, listen: false);
+    //Initialize admin provider
+    _adminProvider = Provider.of<AdminProvider>(context, listen: false);
+    //Check is it edit or add
+    checkIsEditOrAdd();
+    super.initState();
+  }
+  //endregion
+
+  //region Dispose
+  @override
+  void dispose() {
+    _adminProvider!.clearTextFields();
+    super.dispose();
+  }
+  //endregion
+
+  //region Check is it edit or add
+  void checkIsEditOrAdd() {
+    if(widget.playerId != null) {
+      //Edit
+      _adminProvider?.populateTextFieldsFromPlayerDetail(playerId: widget.playerId!);
+    } else {
+      return;
+    }
+  }
+  //endregion
+
 
   //region Build
   @override
@@ -23,44 +64,71 @@ class _AdminScreenState extends State<AdminScreen> {
   }
   //endregion
 
-
   //region App bar
-  AppBar appBar(){
+  AppBar appBar() {
     return AppBar(
-      title:  Text('Admin',style: Theme.of(context).textTheme.appHeadlineMedium(context),),
-      elevation: 1,
+      title: Text(
+        widget.playerId == null?"Add player detail":"Edit player detail",
+        style: Theme.of(context).textTheme.appHeadlineSmall(context),
+      ),
+      actions: [
 
+        Visibility(
+          visible: widget.playerId != null,
+          child: Consumer<AdminProvider>(builder: (BuildContext context, AdminProvider adminProvider, Widget? child) {
+            return IconButton(onPressed: (){
+              adminProvider.deletePlayer(context).then((value){
+
+                //If null
+                if(value == null || !value){
+                  return;
+                }
+               else{
+                  adminProvider.deletePlayerInfo(playerId: widget.playerId!);
+                  //Show message
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Player deleted successfully')));
+                  //Close screen
+                  Navigator.pop(context);
+                }
+
+              });
+            }, icon:const Icon(Icons.delete));
+          }),
+        ),
+
+      ],
+      elevation: 1,
     );
   }
   //endregion
 
-
   //region Body
-  Widget body(){
+  Widget body() {
     return Container(
-        margin: const EdgeInsets.all(15),
-        child: createPlayerDetailForm());
+      margin: const EdgeInsets.all(15),
+      child: createPlayerDetailForm(),
+    );
   }
   //endregion
 
-
-
-
-  //region Create player detail form
-  Widget createPlayerDetailForm(){
-
+  //region Create player data form
+  Widget createPlayerDetailForm() {
     return Consumer<AdminProvider>(
       builder: (context, provider, child) {
         return SingleChildScrollView(
+          padding: const EdgeInsets.only(bottom: 50),
           child: Form(
+            key: provider.formKey,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               spacing: 20,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 TextFormField(
                   textCapitalization: TextCapitalization.words,
                   controller: provider.playerName,
-                  decoration: const InputDecoration(labelText: 'Player Name'),
+                  decoration: const InputDecoration(hintText: 'Player Name'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter the player\'s name';
@@ -70,7 +138,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 ),
                 TextFormField(
                   controller: provider.playerAge,
-                  decoration: const InputDecoration(labelText: 'Player Age'),
+                  decoration: const InputDecoration(hintText: 'Player Age'),
                   keyboardType: TextInputType.number,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -84,9 +152,8 @@ class _AdminScreenState extends State<AdminScreen> {
                 ),
                 TextFormField(
                   textCapitalization: TextCapitalization.sentences,
-
                   controller: provider.bestPerformance,
-                  decoration: const InputDecoration(labelText: 'Best Performance'),
+                  decoration: const InputDecoration(hintText: 'Best Performance'),
                 ),
                 Row(
                   spacing: 20,
@@ -94,14 +161,14 @@ class _AdminScreenState extends State<AdminScreen> {
                     Expanded(
                       child: TextFormField(
                         controller: provider.totalScoreDay,
-                        decoration: const InputDecoration(labelText: 'Total Score (Day)'),
+                        decoration: const InputDecoration(hintText: 'Total Score (Day)'),
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter total score for the day';
+                            return 'Can\'t be empty';
                           }
                           if (int.tryParse(value) == null) {
-                            return 'Please enter a valid number';
+                            return 'Enter a valid number';
                           }
                           return null;
                         },
@@ -110,14 +177,14 @@ class _AdminScreenState extends State<AdminScreen> {
                     Expanded(
                       child: TextFormField(
                         controller: provider.totalScoreYear,
-                        decoration: const InputDecoration(labelText: 'Total Score (Year)'),
+                        decoration: const InputDecoration(hintText: 'Total Score (Year)'),
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter total score for the year';
+                            return 'Can\'t be empty';
                           }
                           if (int.tryParse(value) == null) {
-                            return 'Please enter a valid number';
+                            return 'Enter a valid number';
                           }
                           return null;
                         },
@@ -125,10 +192,9 @@ class _AdminScreenState extends State<AdminScreen> {
                     ),
                   ],
                 ),
-
                 TextFormField(
                   controller: provider.totalWickets,
-                  decoration: const InputDecoration(labelText: 'Total Wickets'),
+                  decoration: const InputDecoration(hintText: 'Total Wickets'),
                   keyboardType: TextInputType.number,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -142,7 +208,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 ),
                 TextFormField(
                   controller: provider.photoUrl,
-                  decoration: const InputDecoration(labelText: 'Photo URL'),
+                  decoration: const InputDecoration(hintText: 'Photo URL'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter a photo URL';
@@ -153,7 +219,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 TextFormField(
                   textCapitalization: TextCapitalization.sentences,
                   controller: provider.aboutPlayer,
-                  decoration: const InputDecoration(labelText: 'About Player'),
+                  decoration: const InputDecoration(hintText: 'About Player'),
                   minLines: 5,
                   maxLines: 10,
                   validator: (value) {
@@ -166,8 +232,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    if (Form.of(context).validate()) {
-                      // If all fields are valid, proceed with saving data
+                    if (provider.formKey.currentState!.validate()) {
                       final playerDetail = PlayerDetail(
                         name: provider.playerName.text,
                         age: int.tryParse(provider.playerAge.text),
@@ -178,21 +243,27 @@ class _AdminScreenState extends State<AdminScreen> {
                         photoUrl: provider.photoUrl.text,
                         aboutPlayer: provider.aboutPlayer.text,
                         createdAt: DateTime.now().toString(),
+                        id: widget.playerId,
+                        isLiked: false,
+                        totalPeriodicScore: TotalPeriodicScore(
+                          day: int.parse(provider.totalScoreDay.text),
+                          yearly: int.parse(provider.totalScoreYear.text),
+                        )
                       );
-                      // Save the player detail (you can save it to Hive or any other storage)
-                      // For example, using Hive:
-                      // playerBox.add(playerDetail);
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('Player details submitted successfully!'),
-                      ));
+                      provider.addAndEditPlayerDetainInHiveDb(playerDetail: playerDetail,isEdit: widget.playerId != null,context: context);
+                      //Close the screen
+                      Navigator.pop(context);
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                         SnackBar(content: Text(widget.playerId != null?'Player details submitted successfully!':'Player details update successfully!')),
+                      );
                     } else {
-                      // Show an error if the form is not valid
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('Please fill in all the fields correctly.'),
-                      ));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Please fill in all the fields correctly.')),
+                      );
                     }
                   },
-                  child: Text('Submit'),
+                  child: const Text('Submit'),
                 ),
               ],
             ),
@@ -202,8 +273,4 @@ class _AdminScreenState extends State<AdminScreen> {
     );
   }
   //endregion
-
 }
-
-
-

@@ -7,21 +7,16 @@ import 'package:player_pedia/services/fetch_player_detail_services/fetch_player_
 import 'package:player_pedia/util/app_enums.dart';
 
 class PlayerDetailProvider with ChangeNotifier {
-
+  //region Common Variables
   String selectedPeriod = 'Day'; // Default selected period
   final List<String> periodOptions = ['Day', 'Yearly'];
 
-
-
+  //endregion
 
   //region On change of period
-void onChangePeriod({required int index}) {
+  void onChangePeriod({required int index}) {
     selectedPeriod = periodOptions[index];
     notifyListeners();
   }
-  //endregion
-
-
-
-
+//endregion
 }

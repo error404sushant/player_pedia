@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:player_pedia/features/screens/admin/admin_screen.dart';
 import 'package:player_pedia/features/screens/player_serach/player_search_screen.dart';
 import 'package:player_pedia/features/screens/select_account/widgets/select_account_card.dart';
 
@@ -14,17 +13,17 @@ class _SelectAccountScreenState extends State<SelectAccountScreen> {
 
 
   //region Go to Admin screen
-  void goToAdminScreen(){
-    Navigator.pushReplacement( context,
-      MaterialPageRoute(builder: (context) => AdminScreen()),
-    );
-  }
+  // void goToAdminScreen(){
+  //   Navigator.pushReplacement( context,
+  //     MaterialPageRoute(builder: (context) => AdminScreen()),
+  //   );
+  // }
   //endregion
 
   //region Go to Search player screen
-  void goToSearchPlayerScreen(){
+  void goToSearchPlayerScreen({required bool isAdmin}){
     Navigator.pushReplacement( context,
-      MaterialPageRoute(builder: (context) => PlayerSearchScreen()),
+      MaterialPageRoute(builder: (context) => PlayerSearchScreen(isAdminView: isAdmin,)),
     );
   }
   //endregion
@@ -51,10 +50,10 @@ class _SelectAccountScreenState extends State<SelectAccountScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SelectAccountCard(cardIcon: Icons.admin_panel_settings,cardName: "Admin",onTap: (){
-          goToAdminScreen();
+          goToSearchPlayerScreen(isAdmin: true);
         },),
         SelectAccountCard(cardIcon: Icons.person,cardName: "User",onTap: (){
-          goToSearchPlayerScreen();
+          goToSearchPlayerScreen(isAdmin: false);
         },),
       ],
     ),
