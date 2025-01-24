@@ -12,7 +12,7 @@ A completely offline app built with Flutter for managing cricket player data. It
 
 ## Download  
 You can download the app here:  
-[Download APK/IPA]([https://link-to-your-apk-file](https://github.com/error404sushant/player_pedia/releases/tag/v1.0.3))  
+[Download APK/IPA](https://github.com/error404sushant/player_pedia/releases/tag/v1.0.3)
 
 ## Built With  
 - **Flutter**  
