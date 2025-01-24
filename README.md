@@ -1,4 +1,4 @@
-# Player pedia (Android/Ios)
+# Player pedia (Android/ios)
 
 A completely offline app built with Flutter for managing cricket player data. It uses Hive for secure, fast storage, and fetches player images online.
 
